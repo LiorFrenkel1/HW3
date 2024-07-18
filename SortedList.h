@@ -4,9 +4,11 @@
 #include <stdexcept>
 
 namespace mtm {
-
-    template <typename T>
+    //template <typename T>
     class SortedList {
+    private:
+        int data;
+        SortedList& next;
     public:
         /**
          *
@@ -32,11 +34,22 @@ namespace mtm {
          * 12. apply - returns a new list with elements that were modified by an operation
          */
 
-    };
+         /**
+          * Constructor without parameters
+          */
+         SortedList();
 
+         /**
+          * Copy constructor
+          * @param SortedList
+          */
+         SortedList(const SortedList& SortedList);
+
+    };
+    /*
     template <class T>
     class SortedList<T>::ConstIterator {
-    /**
+    /*
      * the class should support the following public interface:
      * if needed, use =defualt / =delete
      *
@@ -51,7 +64,7 @@ namespace mtm {
      * 6. operator++ - advances the iterator to the next element
      * 7. operator!= - returns true if the iterator points to a different element
      *
-     */
     };
+    */
 }
 
