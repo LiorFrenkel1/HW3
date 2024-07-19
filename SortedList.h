@@ -45,7 +45,7 @@ namespace mtm {
 
     };
 
-    SortedList::SortedList() : data(NULL), next(nullptr) {}
+    SortedList::SortedList() : data(NULL), next(nullptr) {};
 
     SortedList::SortedList(const SortedList& sortedList) : data(sortedList.data),
     next(sortedList.next){};
