@@ -8,7 +8,7 @@ namespace mtm {
     class SortedList {
     private:
         int data;
-        SortedList& next;
+        SortedList* next;
     public:
         /**
          *
@@ -16,8 +16,6 @@ namespace mtm {
          * if needed, use =defualt / =delete
          *
          * constructors and destructor:
-         * 1. SortedList() - creates an empty list.
-         * 2. copy constructor
          * 3. operator= - assignment operator
          * 4. ~SortedList() - destructor
          *
@@ -37,13 +35,14 @@ namespace mtm {
          /**
           * Constructor without parameters
           */
-         SortedList();
+         SortedList() : data(NULL), next(nullptr) {};
 
          /**
           * Copy constructor
           * @param SortedList
           */
-         SortedList(const SortedList& SortedList);
+         SortedList(const SortedList& sortedList) : data(sortedList.data),
+         next(sortedList.next) {};
 
     };
     /*
