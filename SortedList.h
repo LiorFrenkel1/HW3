@@ -35,16 +35,22 @@ namespace mtm {
          /**
           * Constructor without parameters
           */
-         SortedList() : data(NULL), next(nullptr) {};
+         SortedList();
 
          /**
           * Copy constructor
           * @param SortedList
           */
-         SortedList(const SortedList& sortedList) : data(sortedList.data),
-         next(sortedList.next) {};
+         SortedList(const SortedList& sortedList);
 
     };
+
+    SortedList::SortedList() : data(NULL), next(nullptr) {}
+
+    SortedList::SortedList(const SortedList& sortedList) : data(sortedList.data),
+    next(sortedList.next){};
+
+
     /*
     template <class T>
     class SortedList<T>::ConstIterator {
