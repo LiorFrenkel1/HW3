@@ -9,7 +9,7 @@ namespace mtm {
     class SortedList {
     private:
         T data;
-        int length;
+        int listLength;
         SortedList* next;
     public:
         void printList();
@@ -50,13 +50,19 @@ namespace mtm {
           * @param element
           */
          void insert(T element);
+
+         // remove function
+
+         int length();
     };
 
-    SortedList::SortedList() : data(T()), length(0), next(nullptr) {};
+    SortedList::SortedList() : data(T()), listLength(0), next(nullptr) {};
+
+    SortedList::SortedList(const SortedList &sortedList) =default;
 
     void SortedList::insert(T element) {
-        this->length++;
-        if (this->length == 1) {
+        this->listLength++;
+        if (this->listLength == 1) {
             this->data = element;
             return;
         }
@@ -71,7 +77,7 @@ namespace mtm {
             return;
         }
         newNode->data = element;
-        if (length == 2) {
+        if (this->listLength == 2) {
             this->next = newNode;
             return;
         }
@@ -85,7 +91,7 @@ namespace mtm {
             return;
         }
         SortedList* current = previous->next;
-        for (int i = 3; i < this->length; i++) {
+        for (int i = 3; i < this->listLength; i++) {
             if (current->data < element) {
                 temp = current->data;
                 current->data = element;
@@ -103,13 +109,15 @@ namespace mtm {
     void SortedList::printList() {
         std::cout << this->data << ' ';
         SortedList* nextNode = this->next;
-        for (int i = 2; i <= this->length; i++) {
+        for (int i = 2; i <= this->listLength; i++) {
             std::cout << nextNode->data << ' ';
             nextNode = nextNode->next;
         }
     }
 
-    SortedList::SortedList(const SortedList &sortedList) =default;
+    int SortedList::length() {
+        return this->listLength;
+    }
 
     /*
     template <class T>
