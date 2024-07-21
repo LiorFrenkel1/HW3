@@ -58,7 +58,15 @@ namespace mtm {
 
     SortedList::SortedList() : data(T()), listLength(0), next(nullptr) {};
 
-    SortedList::SortedList(const SortedList &sortedList) =default;
+    SortedList::SortedList(const SortedList& sortedList) : data(T()), listLength(0),
+    next(nullptr){
+        this->insert(sortedList.data);
+        SortedList* nextNode = sortedList.next;
+        for (int i = 2; i <= sortedList.listLength; i++) {
+            this->insert(nextNode->data);
+            nextNode = nextNode->next;
+        }
+    }
 
     void SortedList::insert(T element) {
         this->listLength++;
