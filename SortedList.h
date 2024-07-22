@@ -69,11 +69,13 @@ namespace mtm {
 
     SortedList::SortedList(const SortedList& sortedList) : data(T()), isEmpty(true),
     next(nullptr){
-        this->insert(sortedList.data);
-        SortedList* nextNode = sortedList.next;
-        while(nextNode != nullptr) {
-            this->insert(nextNode->data);
-            nextNode = nextNode->next;
+        if(!sortedList.isEmpty) {
+            this->insert(sortedList.data);
+            SortedList* nextNode = sortedList.next;
+            while(nextNode != nullptr) {
+                this->insert(nextNode->data);
+                nextNode = nextNode->next;
+            }
         }
     }
 
@@ -82,9 +84,10 @@ namespace mtm {
             return *this;
         }
         delete this->next;
-        SortedList newList(*list.next);
+        SortedList* newList = new SortedList(*list.next);
+        this->isEmpty = false;
         this->data = list.data;
-        this->next = &newList;
+        this->next = newList;
         return *this;
     }
 
