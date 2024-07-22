@@ -9,7 +9,7 @@ namespace mtm {
     class SortedList {
     private:
         T data;
-        int listLength;
+        bool isEmpty;
         SortedList* next;
     public:
         void printList();
@@ -46,6 +46,13 @@ namespace mtm {
          SortedList(const SortedList& sortedList);
 
          /**
+          * assignment
+          * @param list to assign from
+          * @return this for farther assignments
+          */
+         SortedList& operator=(const SortedList& list);
+
+         /**
           * Adds a new type T element to the list in the right order
           * @param element
           */
@@ -54,26 +61,40 @@ namespace mtm {
          // remove function
 
          int length();
+
+
     };
 
-    SortedList::SortedList() : data(T()), listLength(0), next(nullptr) {};
+    SortedList::SortedList() : data(T()), isEmpty(true), next(nullptr) {};
 
-    SortedList::SortedList(const SortedList& sortedList) : data(T()), listLength(0),
+    SortedList::SortedList(const SortedList& sortedList) : data(T()), isEmpty(true),
     next(nullptr){
         this->insert(sortedList.data);
         SortedList* nextNode = sortedList.next;
-        for (int i = 2; i <= sortedList.listLength; i++) {
+        while(nextNode != nullptr) {
             this->insert(nextNode->data);
             nextNode = nextNode->next;
         }
     }
 
+    SortedList &SortedList::operator=(const mtm::SortedList &list) {
+        if(this == &list) {
+            return *this;
+        }
+        delete this->next;
+        SortedList newList(*list.next);
+        this->data = list.data;
+        this->next = &newList;
+        return *this;
+    }
+
     void SortedList::insert(T element) {
-        this->listLength++;
-        if (this->listLength == 1) {
+        if (this->isEmpty) {
+            this->isEmpty = false;
             this->data = element;
             return;
         }
+        //TODO: from here on I need you to update
         SortedList* newNode = new SortedList();
         T temp;
         if (element > this->data) { // If the new element is the new biggest
@@ -81,11 +102,13 @@ namespace mtm {
             this->data = element;
             newNode->data = temp;
             newNode->next = this->next;
+            newNode->listLength = this->listLength-1;
             this->next = newNode;
             return;
         }
         newNode->data = element;
         if (this->listLength == 2) {
+            newNode->listLength = 1;
             this->next = newNode;
             return;
         }
@@ -117,14 +140,23 @@ namespace mtm {
     void SortedList::printList() {
         std::cout << this->data << ' ';
         SortedList* nextNode = this->next;
-        for (int i = 2; i <= this->listLength; i++) {
+        while(nextNode != nullptr) {
             std::cout << nextNode->data << ' ';
             nextNode = nextNode->next;
         }
     }
 
     int SortedList::length() {
-        return this->listLength;
+        if(isEmpty) {
+            return 0;
+        }
+        int count = 1;
+        SortedList* nextNode = this->next;
+        while(nextNode != nullptr) {
+            nextNode = nextNode->next;
+            count++;
+        }
+        return count;
     }
 
     /*
