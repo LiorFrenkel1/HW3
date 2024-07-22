@@ -58,8 +58,6 @@ namespace mtm {
           */
          void insert(T element);
 
-         // remove function
-
          int length();
         /**
          * Iterator for iterate over the class
@@ -73,7 +71,7 @@ namespace mtm {
 
         public:
             void operator++();
-            bool operator!=(SortedList::ConstIterator other) const;
+            bool operator!=(const SortedList::ConstIterator& other) const;
             const T& operator*();
 
             friend SortedList;
@@ -197,6 +195,8 @@ namespace mtm {
         return end;
     }
 
+
+
     /*
     template <class T>
     class SortedList<T>::ConstIterator {
@@ -228,7 +228,7 @@ namespace mtm {
         }
     }
 
-    bool SortedList::ConstIterator::operator!=(SortedList::ConstIterator other) const{
+    bool SortedList::ConstIterator::operator!=(const SortedList::ConstIterator& other) const{
         return (this->index != other.index);
         //Todo: check if needed: (this->list != other.list);
     }
@@ -243,6 +243,7 @@ namespace mtm {
         }
         return current->data;
     }
+
 
 }
 
