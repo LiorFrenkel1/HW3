@@ -94,7 +94,6 @@ namespace mtm {
             this->data = element;
             return;
         }
-        //TODO: from here on I need you to update
         SortedList* newNode = new SortedList();
         T temp;
         if (element > this->data) { // If the new element is the new biggest
@@ -102,13 +101,13 @@ namespace mtm {
             this->data = element;
             newNode->data = temp;
             newNode->next = this->next;
-            newNode->listLength = this->listLength-1;
+            newNode->isEmpty = this->isEmpty;
             this->next = newNode;
             return;
         }
         newNode->data = element;
-        if (this->listLength == 2) {
-            newNode->listLength = 1;
+        newNode->isEmpty = false;
+        if (this->length() == 1) {
             this->next = newNode;
             return;
         }
@@ -122,7 +121,7 @@ namespace mtm {
             return;
         }
         SortedList* current = previous->next;
-        for (int i = 3; i < this->listLength; i++) {
+        for (int i = 3; i < this->length()+1; i++) {
             if (current->data < element) {
                 temp = current->data;
                 current->data = element;
