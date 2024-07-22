@@ -10,29 +10,9 @@ namespace mtm {
     private:
         T data;
         bool isEmpty;
-        SortedList* next;
     public:
+        SortedList* next;
         void printList();
-        /**
-         *
-         * the class should support the following public interface:
-         * if needed, use =defualt / =delete
-         *
-         * constructors and destructor:
-         * 3. operator= - assignment operator
-         * 4. ~SortedList() - destructor
-         *
-         * iterator:
-         * 5. class ConstIterator;
-         * 6. begin method
-         * 7. end method
-         *
-         * functions:
-         * 9. remove - removes an element from the list
-         * 10. length - returns the number of elements in the list
-         * 11. filter - returns a new list with elements that satisfy a given condition
-         * 12. apply - returns a new list with elements that were modified by an operation
-         */
 
          /**
           * Constructor without parameters
@@ -44,6 +24,8 @@ namespace mtm {
           * @param SortedList
           */
          SortedList(const SortedList& sortedList);
+
+         ~SortedList();
 
          /**
           * assignment
@@ -58,7 +40,12 @@ namespace mtm {
           */
          void insert(T element);
 
+         /**
+          * Returns the amount of items of the list
+          * @return
+          */
          int length();
+
         /**
          * Iterator for iterate over the class
          */
@@ -76,6 +63,8 @@ namespace mtm {
 
             friend SortedList;
         };
+
+        void remove(const ConstIterator& iterator);
 
         ConstIterator begin();
         ConstIterator end();
@@ -95,8 +84,10 @@ namespace mtm {
         }
     }
 
+    SortedList::~SortedList() = default;
+
     //Todo: need to check for empty lists
-    SortedList &SortedList::operator=(const mtm::SortedList &list) {
+    SortedList& SortedList::operator=(const mtm::SortedList &list) {
         if(this == &list) {
             return *this;
         }
@@ -158,6 +149,29 @@ namespace mtm {
             current = current->next;
         }
         previous->next = newNode;
+    }
+
+    void SortedList::remove(const ConstIterator& iterator) {
+        int removeIndex = iterator.index;
+        SortedList* sortedList = iterator.list;
+        if(sortedList->length() == 1) {
+            sortedList->isEmpty = true;
+            return;
+        }
+        for (int i = 0; i < removeIndex;i++) {
+            sortedList = sortedList->next;
+        }
+        if (sortedList->next == nullptr) {
+            delete sortedList;
+            return;
+        }
+        while (sortedList->next->next != nullptr) {
+            sortedList->data = sortedList->next->data;
+            sortedList = sortedList->next;
+        }
+        sortedList->data = sortedList->next->data;
+        delete sortedList->next;
+        sortedList->next = nullptr;
     }
 
     void SortedList::printList() {
