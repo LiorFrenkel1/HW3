@@ -61,8 +61,26 @@ namespace mtm {
          // remove function
 
          int length();
+        /**
+         * Iterator for iterate over the class
+         */
+        class ConstIterator {
+        private:
+            SortedList* list;
+            int index;
 
+            ConstIterator(SortedList* list, int index);
 
+        public:
+            void operator++();
+            bool operator!=(SortedList::ConstIterator other) const;
+            const T& operator*();
+
+            friend SortedList;
+        };
+
+        ConstIterator begin();
+        ConstIterator end();
     };
 
     SortedList::SortedList() : data(T()), isEmpty(true), next(nullptr) {};
@@ -79,15 +97,20 @@ namespace mtm {
         }
     }
 
+    //Todo: need to check for empty lists
     SortedList &SortedList::operator=(const mtm::SortedList &list) {
         if(this == &list) {
             return *this;
         }
         delete this->next;
-        SortedList* newList = new SortedList(*list.next);
-        this->isEmpty = false;
+        if(list.next != nullptr) {
+            SortedList* newList = new SortedList(*list.next);
+            this->next = newList;
+        } else {
+            this->next = nullptr;
+        }
+        this->isEmpty = list.isEmpty;
         this->data = list.data;
-        this->next = newList;
         return *this;
     }
 
@@ -140,6 +163,9 @@ namespace mtm {
     }
 
     void SortedList::printList() {
+        if(isEmpty) {
+            return;
+        }
         std::cout << this->data << ' ';
         SortedList* nextNode = this->next;
         while(nextNode != nullptr) {
@@ -159,6 +185,16 @@ namespace mtm {
             count++;
         }
         return count;
+    }
+
+    SortedList::ConstIterator SortedList::begin() {
+        ConstIterator begin(this,0);
+        return begin;
+    }
+
+    SortedList::ConstIterator SortedList::end() {
+        ConstIterator end(this, this->length());
+        return end;
     }
 
     /*
@@ -181,5 +217,32 @@ namespace mtm {
      *
     };
     */
+
+    //---------------------------------Iterator Implementations---------------------------------
+    SortedList::ConstIterator::ConstIterator(mtm::SortedList* list, int index) : list(list), index(index) {}
+
+    void SortedList::ConstIterator::operator++() {
+        index++;
+        if (index == list->length()+1) {
+            throw std::out_of_range("Bad index");
+        }
+    }
+
+    bool SortedList::ConstIterator::operator!=(SortedList::ConstIterator other) const{
+        return (this->index != other.index);
+        //Todo: check if needed: (this->list != other.list);
+    }
+
+    const T &SortedList::ConstIterator::operator*() {
+        SortedList* current;
+        current = list;
+        int count = 0;
+        while (count < index) {
+            current = current->next;
+            count++;
+        }
+        return current->data;
+    }
+
 }
 
