@@ -84,7 +84,9 @@ namespace mtm {
         }
     }
 
-    SortedList::~SortedList() = default;
+    SortedList::~SortedList() {
+        delete this->next;
+    }
 
     //Todo: need to check for empty lists
     SortedList& SortedList::operator=(const mtm::SortedList &list) {
@@ -208,29 +210,6 @@ namespace mtm {
         ConstIterator end(this, this->length());
         return end;
     }
-
-
-
-    /*
-    template <class T>
-    class SortedList<T>::ConstIterator {
-    /*
-     * the class should support the following public interface:
-     * if needed, use =defualt / =delete
-     *
-     * constructors and destructor:
-     * 1. a ctor(or ctors) your implementation needs
-     * 2. copy constructor
-     * 3. operator= - assignment operator
-     * 4. ~ConstIterator() - destructor
-     *
-     * operators:
-     * 5. operator* - returns the element the iterator points to
-     * 6. operator++ - advances the iterator to the next element
-     * 7. operator!= - returns true if the iterator points to a different element
-     *
-    };
-    */
 
     //---------------------------------Iterator Implementations---------------------------------
     SortedList::ConstIterator::ConstIterator(mtm::SortedList* list, int index) : list(list), index(index) {}
