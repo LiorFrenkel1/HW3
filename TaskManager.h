@@ -1,8 +1,7 @@
-
 #pragma once
 
 #include "Task.h"
-
+#include "Person.h"
 /**
  * @brief Class managing tasks assigned to multiple persons.
  */
@@ -12,7 +11,8 @@ private:
      * @brief Maximum number of persons the TaskManager can handle.
      */
     static const int MAX_PERSONS = 10;
-
+    Person persons[10];
+    int length;
     // Note - Additional private fields and methods can be added if needed.
 
 public:
