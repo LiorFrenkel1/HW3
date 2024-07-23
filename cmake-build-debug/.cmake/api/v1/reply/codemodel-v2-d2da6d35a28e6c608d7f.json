@@ -39,7 +39,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "HW3::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-HW3-Debug-b11e634b8b8371a5ca2d.json",
+					"jsonFile" : "target-HW3-Debug-789573457e36ae2bdaa7.json",
 					"name" : "HW3",
 					"projectIndex" : 0
 				}
@@ -49,8 +49,8 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "C:/Users/roish/Technion/semester_b/mtm/tb3/HW3/cmake-build-debug",
-		"source" : "C:/Users/roish/Technion/semester_b/mtm/tb3/HW3"
+		"build" : "C:/Users/liorf/OneDrive/Documents/GitHub/HW3/cmake-build-debug",
+		"source" : "C:/Users/liorf/OneDrive/Documents/GitHub/HW3"
 	},
 	"version" : 
 	{
