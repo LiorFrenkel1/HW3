@@ -68,7 +68,7 @@ namespace mtm {
         ConstIterator begin();
         ConstIterator end();
 
-        void apply(T (*operation)(T));
+        SortedList apply(T (*operation)(T));
         SortedList filter(bool (*function)(T));
     };
 
@@ -212,26 +212,19 @@ namespace mtm {
     }
 
     template<typename T>
-    void SortedList<T>::apply(T (*operation)(T)){
-        if (this->isEmpty) {
-            return;
+    SortedList<T> SortedList<T>::apply(T (*operation)(T)){
+        SortedList<T> appliedList;
+        for(T n: (*this)) {
+            appliedList.insert(operation(n));
         }
-        SortedList* temp = new SortedList();
-        temp->insert(operation(this->data));
-        SortedList* current = this->next;
-        while (current != nullptr) {
-            temp->insert(operation(current->data));
-            current = current->next;
-        }
-        delete this->next;
-        this->data = temp->data;
-        this->next = temp->next;
+        return appliedList;
 	}
-	
+
+    template<typename T>
     SortedList<T> SortedList<T>::filter(bool (*function)(T)) {
         SortedList<T> FilteredList;
         for(T n: (*this)) {
-            if(func(n)) {
+            if(function(n)) {
                 FilteredList.insert(n);
             }
         }
