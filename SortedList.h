@@ -67,6 +67,8 @@ namespace mtm {
 
         ConstIterator begin();
         ConstIterator end();
+
+        void apply(T (*operation)(T));
     };
 
     template<typename T>
@@ -206,6 +208,23 @@ namespace mtm {
             count++;
         }
         return count;
+    }
+
+    template<typename T>
+    void SortedList<T>::apply(T (*operation)(T)){
+        if (this->isEmpty) {
+            return;
+        }
+        SortedList* temp = new SortedList();
+        temp->insert(operation(this->data));
+        SortedList* current = this->next;
+        while (current != nullptr) {
+            temp->insert(operation(current->data));
+            current = current->next;
+        }
+        delete this->next;
+        this->data = temp->data;
+        this->next = temp->next;
     }
 
     template<typename T>
