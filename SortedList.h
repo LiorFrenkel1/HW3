@@ -4,8 +4,7 @@
 #include <stdexcept>
 
 namespace mtm {
-    typedef int T;
-    //template <typename T>
+    template <typename T>
     class SortedList {
     private:
         T data;
@@ -70,9 +69,11 @@ namespace mtm {
         ConstIterator end();
     };
 
-    SortedList::SortedList() : data(T()), isEmpty(true), next(nullptr) {};
+    template<typename T>
+    SortedList<T>::SortedList() : data(T()), isEmpty(true), next(nullptr) {};
 
-    SortedList::SortedList(const SortedList& sortedList) : data(T()), isEmpty(true),
+    template<typename T>
+    SortedList<T>::SortedList(const SortedList& sortedList) : data(T()), isEmpty(true),
     next(nullptr){
         if(!sortedList.isEmpty) {
             this->insert(sortedList.data);
@@ -84,12 +85,14 @@ namespace mtm {
         }
     }
 
-    SortedList::~SortedList() {
+    template<typename T>
+    SortedList<T>::~SortedList() {
         delete this->next;
     }
 
+    template<typename T>
     //Todo: need to check for empty lists
-    SortedList& SortedList::operator=(const mtm::SortedList &list) {
+    SortedList<T>& SortedList<T>::operator=(const SortedList<T>& list) {
         if(this == &list) {
             return *this;
         }
@@ -105,7 +108,8 @@ namespace mtm {
         return *this;
     }
 
-    void SortedList::insert(T element) {
+    template<typename T>
+    void SortedList<T>::insert(T element) {
         if (this->isEmpty) {
             this->isEmpty = false;
             this->data = element;
@@ -153,7 +157,8 @@ namespace mtm {
         previous->next = newNode;
     }
 
-    void SortedList::remove(const ConstIterator& iterator) {
+    template<typename T>
+    void SortedList<T>::remove(const ConstIterator& iterator) {
         int removeIndex = iterator.index;
         SortedList* sortedList = iterator.list;
         if(sortedList->length() == 1) {
@@ -176,19 +181,21 @@ namespace mtm {
         sortedList->next = nullptr;
     }
 
-    void SortedList::printList() {
+    template<typename T>
+    void SortedList<T>::printList() {
         if(isEmpty) {
             return;
         }
-        std::cout << this->data << ' ';
+        std::cout << this->data << std::endl;
         SortedList* nextNode = this->next;
         while(nextNode != nullptr) {
-            std::cout << nextNode->data << ' ';
+            std::cout << nextNode->data << std::endl;
             nextNode = nextNode->next;
         }
     }
 
-    int SortedList::length() {
+    template<typename T>
+    int SortedList<T>::length() {
         if(isEmpty) {
             return 0;
         }
@@ -201,32 +208,38 @@ namespace mtm {
         return count;
     }
 
-    SortedList::ConstIterator SortedList::begin() {
+    template<typename T>
+    typename SortedList<T>::ConstIterator SortedList<T>::begin() {
         ConstIterator begin(this,0);
         return begin;
     }
 
-    SortedList::ConstIterator SortedList::end() {
+    template<typename T>
+    typename SortedList<T>::ConstIterator SortedList<T>::end() {
         ConstIterator end(this, this->length());
         return end;
     }
 
     //---------------------------------Iterator Implementations---------------------------------
-    SortedList::ConstIterator::ConstIterator(mtm::SortedList* list, int index) : list(list), index(index) {}
+    template<typename T>
+    SortedList<T>::ConstIterator::ConstIterator(mtm::SortedList<T>* list, int index) : list(list), index(index) {}
 
-    void SortedList::ConstIterator::operator++() {
+    template<typename T>
+    void SortedList<T>::ConstIterator::operator++() {
         index++;
         if (index == list->length()+1) {
             throw std::out_of_range("Bad index");
         }
     }
 
-    bool SortedList::ConstIterator::operator!=(const SortedList::ConstIterator& other) const{
+    template<typename T>
+    bool SortedList<T>::ConstIterator::operator!=(const SortedList::ConstIterator& other) const{
         return (this->index != other.index);
         //Todo: check if needed: (this->list != other.list);
     }
 
-    const T &SortedList::ConstIterator::operator*() {
+    template<typename T>
+    const T& SortedList<T>::ConstIterator::operator*() {
         SortedList* current;
         current = list;
         int count = 0;
