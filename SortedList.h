@@ -71,7 +71,7 @@ namespace mtm {
         SortedList apply(T (*operation)(T)) const;
         SortedList filter(bool (*function)(T)) const;
     };
-
+	
     template<typename T>
     SortedList<T>::SortedList() : data(T()), isEmpty(true), next(nullptr) {};
 
@@ -273,6 +273,5 @@ namespace mtm {
         }
         return current->data;
     }
-
 }
 
