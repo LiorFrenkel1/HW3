@@ -43,33 +43,33 @@ namespace mtm {
           * Returns the amount of items of the list
           * @return
           */
-         int length();
+         int length() const;
 
         /**
          * Iterator for iterate over the class
          */
         class ConstIterator {
         private:
-            SortedList* list;
+            const SortedList* list;
             int index;
 
-            ConstIterator(SortedList* list, int index);
+            ConstIterator(const SortedList* list, int index);
 
         public:
             void operator++();
             bool operator!=(const SortedList::ConstIterator& other) const;
-            const T& operator*();
+            const T& operator*() const;
 
             friend SortedList;
         };
 
         void remove(const ConstIterator& iterator);
 
-        ConstIterator begin();
-        ConstIterator end();
+        ConstIterator begin() const;
+        ConstIterator end() const;
 
-        SortedList apply(T (*operation)(T));
-        SortedList filter(bool (*function)(T));
+        SortedList apply(T (*operation)(T)) const;
+        SortedList filter(bool (*function)(T)) const;
     };
 
     template<typename T>
@@ -198,7 +198,7 @@ namespace mtm {
     }
 
     template<typename T>
-    int SortedList<T>::length() {
+    int SortedList<T>::length() const {
         if(isEmpty) {
             return 0;
         }
@@ -212,7 +212,7 @@ namespace mtm {
     }
 
     template<typename T>
-    SortedList<T> SortedList<T>::apply(T (*operation)(T)){
+    SortedList<T> SortedList<T>::apply(T (*operation)(T)) const {
         SortedList<T> appliedList;
         for(T n: (*this)) {
             appliedList.insert(operation(n));
@@ -221,7 +221,7 @@ namespace mtm {
 	}
 
     template<typename T>
-    SortedList<T> SortedList<T>::filter(bool (*function)(T)) {
+    SortedList<T> SortedList<T>::filter(bool (*function)(T)) const {
         SortedList<T> FilteredList;
         for(T n: (*this)) {
             if(function(n)) {
@@ -232,20 +232,20 @@ namespace mtm {
     }
 
     template<typename T>
-    typename SortedList<T>::ConstIterator SortedList<T>::begin() {
+    typename SortedList<T>::ConstIterator SortedList<T>::begin() const {
         ConstIterator begin(this,0);
         return begin;
     }
 
     template<typename T>
-    typename SortedList<T>::ConstIterator SortedList<T>::end() {
+    typename SortedList<T>::ConstIterator SortedList<T>::end() const {
         ConstIterator end(this, this->length());
         return end;
     }
 
     //---------------------------------Iterator Implementations---------------------------------
     template<typename T>
-    SortedList<T>::ConstIterator::ConstIterator(mtm::SortedList<T>* list, int index) :
+    SortedList<T>::ConstIterator::ConstIterator(const mtm::SortedList<T>* list, int index) :
     list(list), index(index) {}
 
     template<typename T>
@@ -263,7 +263,7 @@ namespace mtm {
     }
 
     template<typename T>
-    const T& SortedList<T>::ConstIterator::operator*() {
+    const T& SortedList<T>::ConstIterator::operator*() const {
         SortedList* current;
         current = list;
         int count = 0;
@@ -273,7 +273,6 @@ namespace mtm {
         }
         return current->data;
     }
-
 
 }
 
