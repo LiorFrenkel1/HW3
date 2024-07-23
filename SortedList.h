@@ -69,6 +69,7 @@ namespace mtm {
         ConstIterator end();
 
         void apply(T (*operation)(T));
+        SortedList filter(bool (*function)(T));
     };
 
     template<typename T>
@@ -225,6 +226,16 @@ namespace mtm {
         delete this->next;
         this->data = temp->data;
         this->next = temp->next;
+	}
+	
+    SortedList<T> SortedList<T>::filter(bool (*function)(T)) {
+        SortedList<T> FilteredList;
+        for(T n: (*this)) {
+            if(func(n)) {
+                FilteredList.insert(n);
+            }
+        }
+        return FilteredList;
     }
 
     template<typename T>
@@ -241,7 +252,8 @@ namespace mtm {
 
     //---------------------------------Iterator Implementations---------------------------------
     template<typename T>
-    SortedList<T>::ConstIterator::ConstIterator(mtm::SortedList<T>* list, int index) : list(list), index(index) {}
+    SortedList<T>::ConstIterator::ConstIterator(mtm::SortedList<T>* list, int index) :
+    list(list), index(index) {}
 
     template<typename T>
     void SortedList<T>::ConstIterator::operator++() {
