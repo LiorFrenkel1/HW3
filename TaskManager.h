@@ -11,7 +11,7 @@ private:
      * @brief Maximum number of persons the TaskManager can handle.
      */
     static const int MAX_PERSONS = 10;
-    Person persons[10];
+    Person* persons;
     int length;
     // Note - Additional private fields and methods can be added if needed.
 
