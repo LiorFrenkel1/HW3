@@ -17,6 +17,7 @@ void TaskManager::assignTask(const string& personName, const Task& task) {
     for (int i = 0; i < this->length; i++) {
         if (personName == this->persons[i].getName()) {
             this->persons[i].assignTask(task);
+            return;
         }
     }
     if(this->length >= MAX_PERSONS) {
