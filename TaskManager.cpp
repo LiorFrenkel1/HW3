@@ -3,7 +3,7 @@
 using std::cout;
 using std::endl;
 //-------------------------------------Class interface-----------------------------------------
-TaskManager::TaskManager() : persons(new Person[10]), length(0), id(0) {}
+TaskManager::TaskManager() : length(0), id(0) {}
 
 void TaskManager::completeTask(const std::string &personName) {
     for(int i = 0; i < this->length; i++) {
@@ -38,9 +38,11 @@ void TaskManager::bumpPriorityByType(TaskType type, int priority) {
         for (Task n: personTasks) {
             if (n.getType() == type) {
                 Task newTask = Task((n.getPriority() + priority), type, n.getDescription());
+                newTask.setId(n.getId());
                 newPersonTasks.insert(newTask);
+            } else {
+                newPersonTasks.insert(n);
             }
-            newPersonTasks.insert(n);
         }
         person.setTasks(newPersonTasks);
     }
