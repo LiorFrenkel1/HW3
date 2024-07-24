@@ -3,7 +3,7 @@
 using std::cout;
 using std::endl;
 //-------------------------------------Class interface-----------------------------------------
-TaskManager::TaskManager() : persons(new Person[10]), length(0) {}
+TaskManager::TaskManager() : persons(new Person[10]), length(0), id(0) {}
 
 void TaskManager::completeTask(const std::string &personName) {
     for(int i = 0; i < this->length; i++) {
@@ -14,9 +14,11 @@ void TaskManager::completeTask(const std::string &personName) {
 }
 
 void TaskManager::assignTask(const string& personName, const Task& task) {
+    Task newTask(task);
+    newTask.setId(this->id++);
     for (int i = 0; i < this->length; i++) {
         if (personName == this->persons[i].getName()) {
-            this->persons[i].assignTask(task);
+            this->persons[i].assignTask(newTask);
             return;
         }
     }
@@ -24,7 +26,7 @@ void TaskManager::assignTask(const string& personName, const Task& task) {
         throw std::runtime_error("Not enough place for a new person");
     }
     this->persons[length] = Person(personName);
-    this->persons[length].assignTask(task);
+    this->persons[length].assignTask(newTask);
     this->length++;
 }
 

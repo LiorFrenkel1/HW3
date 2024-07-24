@@ -13,6 +13,7 @@ private:
     static const int MAX_PERSONS = 10;
     Person* persons;
     int length;
+    int id;
     // Note - Additional private fields and methods can be added if needed.
 
 public:
