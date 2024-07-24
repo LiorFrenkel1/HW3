@@ -54,3 +54,14 @@ void TaskManager::printAllEmployees() const {
     }
 }
 
+void TaskManager::printTasksByType(TaskType type) const {
+    TaskManager tasks;
+    for (int i = 0; i < this->length; i++) {
+        for (Task n: this->persons[i].getTasks()) {
+            if (n.getType() == type) {
+                tasks.assignTask("tasks", n);
+            }
+        }
+    }
+    tasks.printAllTasks();
+}
