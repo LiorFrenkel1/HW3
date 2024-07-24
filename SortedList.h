@@ -4,13 +4,26 @@
 #include <stdexcept>
 
 namespace mtm {
+
     template <typename T>
     class SortedList {
     private:
-        T data;
-        bool isEmpty;
+        class Node {
+        private:
+            T data;
+            Node* next;
+
+            Node(T data);
+
+            Node(const Node& node);
+
+            Node& operator=(const Node& node);
+
+            ~Node();
+        };
+    private:
+        Node* list;
     public:
-        SortedList* next;
         void printList();
 
          /**
