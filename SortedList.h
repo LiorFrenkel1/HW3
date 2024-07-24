@@ -126,14 +126,18 @@ namespace mtm {
         delete this->list;
     }
 
+
     template<typename T>
     SortedList<T>& SortedList<T>::operator=(const SortedList<T>& other) {
-        if(this == &other) {
+        if (this == &other) {
             return *this;
         }
         delete this->list;
-        SortedList<T>* newList = new SortedList<T>(other);
-        this->list = newList->list;
+        if (other.list) {
+            this->list = new Node(*other.list);
+        } else {
+            this->list = nullptr;
+        }
         return *this;
     }
 
