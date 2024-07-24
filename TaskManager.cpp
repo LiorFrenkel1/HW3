@@ -72,13 +72,16 @@ void TaskManager::printAllTasks() const {
 }
 	
 void TaskManager::printTasksByType(TaskType type) const {
-    TaskManager tasks;
+    SortedList<Task> filteredList;
     for (int i = 0; i < this->length; i++) {
+        SortedList<Task> personTasks;
         for (Task n: this->persons[i].getTasks()) {
             if (n.getType() == type) {
-                tasks.assignTask("tasks", n);
+                filteredList.insert(n);
             }
         }
     }
-    tasks.printAllTasks();
+    for(Task t: filteredList) {
+        cout << t << endl;
+    }
 }

@@ -165,6 +165,9 @@ namespace mtm {
     void SortedList<T>::remove(const ConstIterator& iterator) {
         Node* toDelete = list;
         if (iterator.index == 0) {
+            if(list == nullptr){
+                return;
+            }
             list = toDelete->next;
             toDelete->next = nullptr;
             delete(toDelete);
