@@ -88,13 +88,9 @@ namespace mtm {
     SortedList<T>::Node::Node(T data) : data(data), next(nullptr){};
 
     template<typename T>
-    SortedList<T>::Node::Node(const Node& node) : data(node.data) {
-        Node* currentOther = &node.next;
-        Node* currentThis = &this;
-        while(currentOther->next != nullptr) {
-            currentThis->next = new Node(currentOther->data);
-            currentThis = currentThis->next;
-            currentOther = currentOther->next;
+    SortedList<T>::Node::Node(const Node& node) : data(node.data), next(nullptr) {
+        if(node.next != nullptr) {
+            this->next = new Node(*node.next);
         }
 
     }
@@ -119,7 +115,11 @@ namespace mtm {
     SortedList<T>::SortedList() : list(nullptr) {}
 
     template<typename T>
-    SortedList<T>::SortedList(const SortedList& sortedList) : list(sortedList.list) {}
+    SortedList<T>::SortedList(const SortedList& sortedList) : list(nullptr) {
+        if(sortedList.list != nullptr) {
+            list = new Node(*sortedList.list);
+        }
+    }
 
     template<typename T>
     SortedList<T>::~SortedList() {
@@ -164,6 +164,7 @@ namespace mtm {
             list = toDelete->next;
             toDelete->next = nullptr;
             delete(toDelete);
+            return;
         }
         Node* previous = list;
         toDelete = previous->next;
@@ -171,9 +172,11 @@ namespace mtm {
             previous = previous->next;
             toDelete = previous->next;
         }
-        previous->next = toDelete->next;
-        toDelete->next = nullptr;
-        delete(toDelete);
+        if(toDelete != nullptr) {
+            previous->next = toDelete->next;
+            toDelete->next = nullptr;
+            delete(toDelete);
+        }
     }
 
     template<typename T>
