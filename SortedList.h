@@ -124,17 +124,10 @@ namespace mtm {
     }
 	
     template<typename T>
-    SortedList<T>::SortedList() : list(nullptr) {};
+    SortedList<T>::SortedList() : list(nullptr) {}
 
     template<typename T>
-    SortedList<T>::SortedList(const SortedList& sortedList) {
-        this->insert(sortedList.list.data);
-        Node* nextNode = sortedList.list;
-        while(nextNode != nullptr) {
-            this->insert(nextNode->data);
-            nextNode = nextNode->next;
-        }
-    }
+    SortedList<T>::SortedList(const SortedList& sortedList) : list(sortedList.list) {}
 
     template<typename T>
     SortedList<T>::~SortedList() {
@@ -155,7 +148,12 @@ namespace mtm {
     void SortedList<T>::insert(T element) {
         Node* node = this->list;
         if (node == nullptr) {
-            node = new Node(element);
+            list = new Node(element);
+            return;
+        }
+        if (element > node->data) {
+            this->list = new Node(element);
+            this->list->next = node;
             return;
         }
         while (node->next != nullptr && element < node->next->data) {
@@ -232,7 +230,7 @@ namespace mtm {
 
     //---------------------------------Iterator Implementations---------------------------------
     template<typename T>
-    SortedList<T>::ConstIterator::ConstIterator(const mtm::SortedList<T>* list, int index) :
+    SortedList<T>::ConstIterator::ConstIterator(const mtm::SortedList<T>* sortedList, int index) :
     sortedList(sortedList), index(index) {}
 
     template<typename T>
