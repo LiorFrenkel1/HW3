@@ -1,4 +1,4 @@
-//#pragma once
+#pragma once
 
 #include <iostream>
 #include <stdexcept>
@@ -89,11 +89,14 @@ namespace mtm {
 
     template<typename T>
     SortedList<T>::Node::Node(const Node& node) : data(node.data) {
-        if(node.next == nullptr) {
-            this->next = nullptr;
-        } else {
-            this->next = new Node(*(node->next));
+        Node* currentOther = &node.next;
+        Node* currentThis = &this;
+        while(currentOther->next != nullptr) {
+            currentThis->next = new Node(currentOther->data);
+            currentThis = currentThis->next;
+            currentOther = currentOther->next;
         }
+
     }
 
     template<typename T>
@@ -129,7 +132,8 @@ namespace mtm {
             return *this;
         }
         delete this->list;
-        this->list = new Node(other.list);
+        SortedList<T>* newList = new SortedList<T>(other);
+        this->list = newList->list;
         return *this;
     }
 
