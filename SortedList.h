@@ -9,7 +9,7 @@ namespace mtm {
     class SortedList {
     private:
         class Node {
-        private:
+        public:
             T data;
             Node* next;
 
@@ -24,8 +24,7 @@ namespace mtm {
         Node* list;
 
     public:
-        void printList();
-
+        //void printList();
          /**
           * Constructor without parameters
           */
@@ -156,14 +155,14 @@ namespace mtm {
     void SortedList<T>::insert(T element) {
         Node* node = this->list;
         if (node == nullptr) {
-            node = Node(element);
+            node = new Node(element);
             return;
         }
         while (node->next != nullptr && element < node->next->data) {
             node = node->next;
         }
         Node* secondPartOfList = node->next;
-        node->next = Node(element);
+        node->next = new Node(element);
         node->next->next = secondPartOfList;
     }
 
@@ -176,13 +175,13 @@ namespace mtm {
             delete(toDelete);
         }
         Node* previous = list;
-        toDelete* = previous->next;
+        toDelete = previous->next;
         for (int i = 1; i < iterator.index; i++) {
             previous = previous->next;
             toDelete = previous->next;
         }
-        previous->next = toDelete.next;
-        toDelete.next = nullptr;
+        previous->next = toDelete->next;
+        toDelete->next = nullptr;
         delete(toDelete);
     }
 
@@ -228,6 +227,8 @@ namespace mtm {
         ConstIterator end(this, this->length());
         return end;
     }
+
+
 
     //---------------------------------Iterator Implementations---------------------------------
     template<typename T>
