@@ -54,3 +54,14 @@ void TaskManager::printAllEmployees() const {
     }
 }
 
+void TaskManager::printAllTasks() const {
+    SortedList<Task> tasks;
+    for (int i = 0; i < length ; i++) {
+        for(const Task& task: persons[i].getTasks()) {
+            tasks.insert(task);
+        }
+    }
+    for(const Task& task: tasks) {
+        cout << task << endl;
+    }
+}
