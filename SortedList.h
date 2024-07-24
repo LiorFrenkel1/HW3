@@ -145,7 +145,7 @@ namespace mtm {
             this->list->next = node;
             return;
         }
-        while (node->next != nullptr && element < node->next->data) {
+        while (node->next != nullptr && node->next->data > element) {
             node = node->next;
         }
         Node* secondPartOfList = node->next;
