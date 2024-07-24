@@ -27,8 +27,21 @@ void TaskManager::assignTask(const string& personName, const Task& task) {
     this->length++;
 }
 
-
-
+void TaskManager::bumpPriorityByType(TaskType type, int priority) {
+    for (int i = 0; i < this->length; i++) {
+        Person person = this->persons[i];
+        SortedList<Task> personTasks = person.getTasks();
+        SortedList<Task> newPersonTasks;
+        for (Task n: personTasks) {
+            if (n.getType() == type) {
+                Task newTask = Task((n.getPriority() + priority), type, n.getDescription());
+                newPersonTasks.insert(newTask);
+            }
+            newPersonTasks.insert(n);
+        }
+        person.setTasks(newPersonTasks);
+    }
+}
 
 
 
