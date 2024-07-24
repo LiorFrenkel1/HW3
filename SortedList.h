@@ -173,7 +173,9 @@ namespace mtm {
         while (node->next != nullptr && element < node->next->data) {
             node = node->next;
         }
+        Node* secondPartOfList = node->next;
         node->next = Node(element);
+        node->next->next = secondPartOfList;
     }
 
     template<typename T>
