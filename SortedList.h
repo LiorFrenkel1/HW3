@@ -84,9 +84,48 @@ namespace mtm {
         SortedList apply(T (*operation)(T)) const;
         SortedList filter(bool (*function)(T)) const;
     };
+
+    template<typename T>
+    SortedList<T>::Node::Node(T data) : data(data), next(nullptr){};
+
+    template<typename T>
+    SortedList<T>::Node::Node(const Node& node) : data(node.data) {
+        Node* nextNode = node.next;
+        if (nextNode == nullptr) {
+            this->next = nullptr;
+            return;
+        }
+        Node* newNode = new Node(nextNode);
+        this->next = newNode;
+        nextNode = nextNode->next;
+        Node* thisNext = this->next;
+        while (nextNode != nullptr) {
+            newNode = new Node(nextNode);
+            thisNext = newNode;
+            nextNode = nextNode->next;
+            thisNext = thisNext->next;
+        }
+
+    }
+
+    template<typename T>
+    typename SortedList<T>::Node& SortedList<T>::Node::operator=(const mtm::SortedList<T>::Node &node) {
+        if (this == &node) {
+            return *this;
+        }
+        Node newNode(node);
+        this->data = newNode.data;
+        this->next = newNode.next;
+        return *this;
+    }
+
+    template<typename T>
+    SortedList<T>::Node::~Node() {
+        delete this->next;
+    }
 	
     template<typename T>
-    SortedList<T>::SortedList() : data(T()), isEmpty(true), next(nullptr) {};
+    SortedList<T>::SortedList() : list(nullptr) {};
 
     template<typename T>
     SortedList<T>::SortedList(const SortedList& sortedList) {
@@ -100,7 +139,7 @@ namespace mtm {
 
     template<typename T>
     SortedList<T>::~SortedList() {
-        delete this->next;
+        delete this->list;
     }
 
     template<typename T>
@@ -115,51 +154,17 @@ namespace mtm {
 
     template<typename T>
     void SortedList<T>::insert(T element) {
-        if (this->isEmpty) {
-            this->isEmpty = false;
-            this->data = element;
+        Node* node = this->list;
+        if (node == nullptr) {
+            node = Node(element);
             return;
         }
-        SortedList* newNode = new SortedList();
-        T temp;
-        if (element > this->data) { // If the new element is the new biggest
-            temp = this->data;
-            this->data = element;
-            newNode->data = temp;
-            newNode->next = this->next;
-            newNode->isEmpty = this->isEmpty;
-            this->next = newNode;
-            return;
+        while (node->next != nullptr && element < node->next->data) {
+            node = node->next;
         }
-        newNode->data = element;
-        newNode->isEmpty = false;
-        if (this->length() == 1) {
-            this->next = newNode;
-            return;
-        }
-        SortedList* previous = this->next;
-        if (element > previous->data) { // If the new element is the new biggest
-            temp = previous->data;
-            previous->data = element;
-            newNode->data = temp;
-            newNode->next = previous->next;
-            previous->next = newNode;
-            return;
-        }
-        SortedList* current = previous->next;
-        for (int i = 3; i < this->length()+1; i++) {
-            if (current->data < element) {
-                temp = current->data;
-                current->data = element;
-                newNode->data = temp;
-                newNode->next = current->next;
-                current->next = newNode;
-                return;
-            }
-            previous = previous->next;
-            current = current->next;
-        }
-        previous->next = newNode;
+        Node* secondPartOfList = node->next;
+        node->next = Node(element);
+        node->next->next = secondPartOfList;
     }
 
     template<typename T>
@@ -182,28 +187,12 @@ namespace mtm {
     }
 
     template<typename T>
-    void SortedList<T>::printList() {
-        if(isEmpty) {
-            return;
-        }
-        std::cout << this->data << std::endl;
-        SortedList* nextNode = this->next;
-        while(nextNode != nullptr) {
-            std::cout << nextNode->data << std::endl;
-            nextNode = nextNode->next;
-        }
-    }
-
-    template<typename T>
     int SortedList<T>::length() const {
-        if(isEmpty) {
-            return 0;
-        }
-        int count = 1;
-        SortedList* nextNode = this->next;
-        while(nextNode != nullptr) {
-            nextNode = nextNode->next;
+        int count = 0;
+        Node* node = this->list;
+        while (node != nullptr) {
             count++;
+            node = node->next;
         }
         return count;
     }
