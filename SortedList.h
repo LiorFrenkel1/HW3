@@ -13,7 +13,7 @@ namespace mtm {
             T data;
             Node* next;
 
-            Node(T data);
+            Node(const T& data);
 
             Node(const Node& node);
 
@@ -85,7 +85,7 @@ namespace mtm {
     };
 
     template<typename T>
-    SortedList<T>::Node::Node(T data) : data(data), next(nullptr){};
+    SortedList<T>::Node::Node(const T& data) : data(data), next(nullptr){};
 
     template<typename T>
     SortedList<T>::Node::Node(const Node& node) : data(node.data), next(nullptr) {
