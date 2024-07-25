@@ -80,8 +80,11 @@ namespace mtm {
         ConstIterator begin() const;
         ConstIterator end() const;
 
-        SortedList apply(T (*operation)(T)) const;
-        SortedList filter(bool (*function)(T)) const;
+        template<typename operation>
+        SortedList apply(operation) const;
+
+        template<typename Func>
+        SortedList filter(Func) const;
     };
 
     template<typename T>
@@ -132,12 +135,12 @@ namespace mtm {
         if (this == &other) {
             return *this;
         }
-        delete this->list;
+        Node* newList = nullptr;
         if (other.list) {
-            this->list = new Node(*other.list);
-        } else {
-            this->list = nullptr;
+            newList = new Node(*other.list);
         }
+        delete this->list;
+        this->list = newList;
         return *this;
     }
 
@@ -198,7 +201,8 @@ namespace mtm {
     }
 
     template<typename T>
-    SortedList<T> SortedList<T>::apply(T (*operation)(T)) const {
+    template<typename Operation>
+    SortedList<T> SortedList<T>::apply(Operation operation) const {
         SortedList<T> appliedList;
         for(T n: (*this)) {
             appliedList.insert(operation(n));
@@ -207,7 +211,8 @@ namespace mtm {
 	}
 
     template<typename T>
-    SortedList<T> SortedList<T>::filter(bool (*function)(T)) const {
+    template<typename Func>
+    SortedList<T> SortedList<T>::filter(Func function) const {
         SortedList<T> FilteredList;
         for(T n: (*this)) {
             if(function(n)) {
