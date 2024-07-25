@@ -1,0 +1,584 @@
+* commit ca3a999e4f380b0ddf0fe1423a5af4e8b88161e4
+| Author: LiorFrenkel1 <liorfr5002@gmail.com>
+| Date:   Thu Jul 25 18:18:51 2024 +0300
+| 
+|     Add dry
+| 
+|  dry.docx | Bin 0 -> 507839 bytes
+|  dry.pdf  | Bin 0 -> 99095 bytes
+|  2 files changed, 0 insertions(+), 0 deletions(-)
+| 
+* commit 38a5491132584b1610703837d081b081301ff3a1
+| Author: LiorFrenkel1 <liorfr5002@gmail.com>
+| Date:   Thu Jul 25 18:11:25 2024 +0300
+| 
+|     Fix minor bug
+| 
+|  .idea/vcs.xml                                     |   2 +
+|  MatamGenericTester                                |   1 +
+|  SortedList.h                                      |   4 +-
+|  TaskManagerTest                                   | Bin 0 -> 272760 bytes
+|  cmake-build-debug/.ninja_deps                     | Bin 0 -> 18796 bytes
+|  cmake-build-debug/.ninja_log                      |   6 +
+|  .../CMakeFiles/HW3.dir/Person.cpp.obj             | Bin 0 -> 82054 bytes
+|  cmake-build-debug/CMakeFiles/HW3.dir/Task.cpp.obj | Bin 0 -> 62197 bytes
+|  .../CMakeFiles/HW3.dir/TaskManager.cpp.obj        | Bin 0 -> 98760 bytes
+|  cmake-build-debug/CMakeFiles/HW3.dir/main.cpp.obj | Bin 0 -> 164722 bytes
+|  cmake-build-debug/HW3.exe                         | Bin 0 -> 367388 bytes
+|  cmake-build-debug/Testing/Temporary/LastTest.log  |   4 +-
+|  test_results.html                                 | 284 ++++++++++++++++++++
+|  13 files changed, 297 insertions(+), 4 deletions(-)
+| 
+* commit 4e41aea4121c517f13c0ea6025f918929bd8937b
+| Author: roishm <roishmerling@campus.technion.ac.il>
+| Date:   Wed Jul 24 22:14:27 2024 +0300
+| 
+|     fixing bumpPriorityByType
+| 
+|  TaskManager.cpp | 5 ++---
+|  1 file changed, 2 insertions(+), 3 deletions(-)
+| 
+* commit cb058a64769b25cb431b55f0f7a2c6df1b1a5a91
+| Author: roishm <roishmerling@campus.technion.ac.il>
+| Date:   Wed Jul 24 22:11:14 2024 +0300
+| 
+|     fixing printListByType
+| 
+|  SortedList.h    | 3 +++
+|  TaskManager.cpp | 9 ++++++---
+|  2 files changed, 9 insertions(+), 3 deletions(-)
+|   
+| * commit 9b938d2bfc96426ca47c1d0766fdd96685c0b96b
+|/| Merge: b981ecc a1203ee
+| | Author: LiorFrenkel1 <liorfr5002@gmail.com>
+| | Date:   Thu Jul 25 17:07:33 2024 +0300
+| | 
+| |     On main: !!GitHub_Desktop<main>
+| | 
+| * commit a1203ee2ff3c38a06eb848562fea97d33c8a1a15
+|/  Author: LiorFrenkel1 <liorfr5002@gmail.com>
+|   Date:   Thu Jul 25 17:07:33 2024 +0300
+|   
+|       index on main: b981ecc fixing persons from new to heap
+|   
+|    MatamGenericTester                                 |   1 +
+|    TaskManagerTest                                    | Bin 0 -> 273072 bytes
+|    cmake-build-debug/.ninja_deps                      | Bin 0 -> 21084 bytes
+|    cmake-build-debug/.ninja_log                       |  13 +++++++++++++
+|    .../CMakeFiles/HW3.dir/Person.cpp.obj              | Bin 0 -> 82306 bytes
+|    cmake-build-debug/CMakeFiles/HW3.dir/Task.cpp.obj  | Bin 0 -> 62197 bytes
+|    .../CMakeFiles/HW3.dir/TaskManager.cpp.obj         | Bin 0 -> 101099 bytes
+|    cmake-build-debug/CMakeFiles/HW3.dir/main.cpp.obj  | Bin 0 -> 68553 bytes
+|    cmake-build-debug/HW3.exe                          | Bin 0 -> 299746 bytes
+|    9 files changed, 14 insertions(+)
+| 
+* commit b981ecc286b9671934b1c9c507259a27cabfc214
+| Author: roishm <roishmerling@campus.technion.ac.il>
+| Date:   Wed Jul 24 21:41:22 2024 +0300
+| 
+|     fixing persons from new to heap
+| 
+|  TaskManager.cpp | 6 ++++--
+|  TaskManager.h   | 2 +-
+|  TechnionMatam   | 1 +
+|  3 files changed, 6 insertions(+), 3 deletions(-)
+| 
+* commit 7e189e6b217c3b10c858d8c019a3a8130dccd411
+| Author: roishm <roishmerling@campus.technion.ac.il>
+| Date:   Wed Jul 24 21:07:18 2024 +0300
+| 
+|     adding id
+| 
+|  TaskManager.cpp | 8 +++++---
+|  TaskManager.h   | 1 +
+|  2 files changed, 6 insertions(+), 3 deletions(-)
+| 
+* commit 1f659271bda9700988ab60af4e720fde507f5094
+| Author: roishm <roishmerling@campus.technion.ac.il>
+| Date:   Wed Jul 24 20:56:01 2024 +0300
+| 
+|     fixing bug in SortedList
+| 
+|  SortedList.h | 10 +++++++---
+|  1 file changed, 7 insertions(+), 3 deletions(-)
+| 
+* commit fed475a12d0f50a33307276b276891ec19b64cbc
+| Author: roishm <roishmerling@campus.technion.ac.il>
+| Date:   Wed Jul 24 20:55:28 2024 +0300
+| 
+|     fixing bug in assignTask
+| 
+|  TaskManager.cpp | 1 +
+|  1 file changed, 1 insertion(+)
+| 
+* commit 542f0514c5382514ecb712d7d00eed3dc89b63e6
+| Author: roishm <roishmerling@campus.technion.ac.il>
+| Date:   Wed Jul 24 18:29:25 2024 +0300
+| 
+|     fixing bugs
+| 
+|  .gitmodules  |  6 ++++++
+|  SortedList.h | 25 ++++++++++++++-----------
+|  2 files changed, 20 insertions(+), 11 deletions(-)
+| 
+* commit c1357ec46d0b387f26d47a2eb64aae5c6b92069d
+| Author: roishm <roishmerling@campus.technion.ac.il>
+| Date:   Wed Jul 24 18:02:55 2024 +0300
+| 
+|     update node copy Ctor
+| 
+|  SortedList.h | 16 ++++++++++------
+|  1 file changed, 10 insertions(+), 6 deletions(-)
+| 
+* commit c5898c66d33f8f05f2ba04c1bdfd0a26f1f879ea
+| Author: roishm <roishmerling@campus.technion.ac.il>
+| Date:   Wed Jul 24 17:20:00 2024 +0300
+| 
+|     sloving conflicts
+| 
+|  TaskManager.cpp | 7 ++++---
+|  1 file changed, 4 insertions(+), 3 deletions(-)
+|   
+*   commit d856c1b595849b51cf7e580acc41ba6f5ba82231
+|\  Merge: 91716b6 ec0e0f1
+| | Author: roishm <roishmerling@campus.technion.ac.il>
+| | Date:   Wed Jul 24 17:18:24 2024 +0300
+| | 
+| |     Merge branch 'main' of https://github.com/LiorFrenkel1/HW3
+| | 
+| * commit ec0e0f19dd6f53b2482fe894453807a3264b2c78
+| | Author: LiorFrenkel1 <liorfr5002@gmail.com>
+| | Date:   Wed Jul 24 17:10:42 2024 +0300
+| | 
+| |     Add printTasksByType
+| | 
+| |  TaskManager.cpp | 11 +++++++++++
+| |  1 file changed, 11 insertions(+)
+| |   
+* |   commit 91716b602cc4fd9030d98c992086167e6c99d9ca
+|\ \  Merge: 1b9ac5c bfb774c
+| |/  Author: roishm <roishmerling@campus.technion.ac.il>
+|/|   Date:   Wed Jul 24 17:17:23 2024 +0300
+| |   
+| |       Merge branch 'Create-Node-class'
+| | 
+| * commit bfb774c098b1b12cc162cfc3a890a716048f7274
+| | Author: roishm <roishmerling@campus.technion.ac.il>
+| | Date:   Wed Jul 24 16:51:06 2024 +0300
+| | 
+| |     creating printTaskByPriority
+| | 
+| |  TaskManager.cpp | 11 +++++++++++
+| |  1 file changed, 11 insertions(+)
+| | 
+* | commit 1b9ac5cd4a047da3cf69006ef9d8f63a22ff67c3
+|/  Author: LiorFrenkel1 <liorfr5002@gmail.com>
+|   Date:   Wed Jul 24 16:45:41 2024 +0300
+|   
+|       Fix minor bug
+|   
+|    SortedList.h | 2 +-
+|    1 file changed, 1 insertion(+), 1 deletion(-)
+|   
+*   commit b6a530e145a6442218df9e72bd84d70cf3a52ff9
+|\  Merge: da7e70f 20683a2
+| | Author: LiorFrenkel1 <liorfr5002@gmail.com>
+| | Date:   Wed Jul 24 16:40:49 2024 +0300
+| | 
+| |     Merge branch 'Create-Node-class' of https://github.com/LiorFrenkel1/HW3 into Create-Node-class
+| | 
+| * commit 20683a2c5fc9bf546384a1c504f06e538127da95
+| | Author: roishm <roishmerling@campus.technion.ac.il>
+| | Date:   Wed Jul 24 16:31:00 2024 +0300
+| | 
+| |     fixing Copy Ctor
+| | 
+| |  CHECK        | Bin 0 -> 38920 bytes
+| |  SortedList.h |  19 ++++---------------
+| |  2 files changed, 4 insertions(+), 15 deletions(-)
+| | 
+* | commit da7e70f3835fa5b3f51e8f432b499ba20d625cf0
+|/  Author: LiorFrenkel1 <liorfr5002@gmail.com>
+|   Date:   Wed Jul 24 16:40:33 2024 +0300
+|   
+|       Implement bumpPriorityByType
+|   
+|    TaskManager.cpp | 17 +++++++++++++++--
+|    1 file changed, 15 insertions(+), 2 deletions(-)
+| 
+* commit efd3c1e364e77e3b5caebec676e40342f4c86263
+| Author: roishm <roishmerling@campus.technion.ac.il>
+| Date:   Wed Jul 24 16:06:50 2024 +0300
+| 
+|     fixing iterator ctor
+| 
+|  SortedList.h | 20 +++++++++-----------
+|  1 file changed, 9 insertions(+), 11 deletions(-)
+| 
+* commit 5f01b27737579d9b93f7565c39b10b0d0667d893
+| Author: roishm <roishmerling@campus.technion.ac.il>
+| Date:   Wed Jul 24 15:26:19 2024 +0300
+| 
+|     fixing for compiltaion
+| 
+|  SortedList.h | 17 +++++++++--------
+|  1 file changed, 9 insertions(+), 8 deletions(-)
+|   
+*   commit d9624aaec933e068f00d945101cff4ab06da69a3
+|\  Merge: f942392 09b6e28
+| | Author: roishm <roishmerling@campus.technion.ac.il>
+| | Date:   Wed Jul 24 15:02:37 2024 +0300
+| | 
+| |     Merge branch 'Create-Node-class' of https://github.com/LiorFrenkel1/HW3 into Create-Node-class
+| | 
+| * commit 09b6e28a51c31a29d5d29aeae5bff1eba8b9b30a
+| | Author: LiorFrenkel1 <liorfr5002@gmail.com>
+| | Date:   Wed Jul 24 14:56:02 2024 +0300
+| | 
+| |     Fix a bug in insert
+| | 
+| |  SortedList.h | 2 ++
+| |  1 file changed, 2 insertions(+)
+| | 
+| * commit 7c108c1716c0d7cf2e0adea1c7793acf27928ddc
+| | Author: LiorFrenkel1 <liorfr5002@gmail.com>
+| | Date:   Wed Jul 24 14:52:44 2024 +0300
+| | 
+| |     Change my functions to work with nodes
+| | 
+| |  SortedList.h | 115 ++++++++++++++++++++++++-------------------------------
+| |  1 file changed, 51 insertions(+), 64 deletions(-)
+| | 
+* | commit f94239280628d50cc51b9740f3f6e532089bdb02
+|/  Author: roishm <roishmerling@campus.technion.ac.il>
+|   Date:   Wed Jul 24 15:02:04 2024 +0300
+|   
+|       Update SortedList.h
+|   
+|    SortedList.h | 79 ++++++++++++++++++++++----------------------------------
+|    1 file changed, 31 insertions(+), 48 deletions(-)
+| 
+* commit eb7e872387e62468e759592938dc176cc3156874
+| Author: LiorFrenkel1 <liorfr5002@gmail.com>
+| Date:   Wed Jul 24 14:15:34 2024 +0300
+| 
+|     Create Node class
+| 
+|  SortedList.h | 19 ++++++++++++++++---
+|  1 file changed, 16 insertions(+), 3 deletions(-)
+| 
+* commit 69624c0663b144998e2aafc9e45402745955d4da
+| Author: LiorFrenkel1 <liorfr5002@gmail.com>
+| Date:   Tue Jul 23 23:46:00 2024 +0300
+| 
+|     Create CMakeList
+| 
+|  .idea/.gitignore                                  |   8 +
+|  .idea/HW3.iml                                     |   2 +
+|  .idea/misc.xml                                    |   4 +
+|  .idea/modules.xml                                 |   8 +
+|  .idea/vcs.xml                                     |   6 +
+|  CMakeLists.txt                                    |  16 +
+|  cmake-build-debug/.cmake/api/v1/query/cache-v2    |   0
+|  .../.cmake/api/v1/query/cmakeFiles-v1             |   0
+|  .../.cmake/api/v1/query/codemodel-v2              |   0
+|  .../.cmake/api/v1/query/toolchains-v1             |   0
+|  ...on => cmakeFiles-v1-d1bd4cde3bbf977c09d6.json} |   4 +-
+|  ...son => codemodel-v2-d2da6d35a28e6c608d7f.json} |   6 +-
+|  .../directory-.-Debug-d0094a50bb2071803777.json   |  14 +
+|  .../v1/reply/index-2024-07-23T13-50-15-0773.json  | 108 ---
+|  ...0.json => index-2024-07-23T20-45-37-0153.json} |   8 +-
+|  ...=> target-HW3-Debug-789573457e36ae2bdaa7.json} |  46 +-
+|  .../reply/toolchains-v1-471bce94bfe13a5ea4fc.json |  93 +++
+|  cmake-build-debug/CMakeCache.txt                  | 415 ++++++++++
+|  .../CMakeFiles/3.27.8/CMakeCCompiler.cmake        |  74 ++
+|  .../CMakeFiles/3.27.8/CMakeCXXCompiler.cmake      |  85 ++
+|  .../3.27.8/CMakeDetermineCompilerABI_C.bin        | Bin 0 -> 43069 bytes
+|  .../3.27.8/CMakeDetermineCompilerABI_CXX.bin      | Bin 0 -> 43088 bytes
+|  .../CMakeFiles/3.27.8/CMakeRCCompiler.cmake       |   6 +
+|  .../CMakeFiles/3.27.8/CMakeSystem.cmake           |  15 +
+|  .../3.27.8/CompilerIdC/CMakeCCompilerId.c         | 866 ++++++++++++++++++++
+|  .../CMakeFiles/3.27.8/CompilerIdC/a.exe           | Bin 0 -> 43144 bytes
+|  .../3.27.8/CompilerIdCXX/CMakeCXXCompilerId.cpp   | 855 +++++++++++++++++++
+|  .../CMakeFiles/3.27.8/CompilerIdCXX/a.exe         | Bin 0 -> 43172 bytes
+|  .../CMakeFiles/CMakeConfigureLog.yaml             | 417 ++++++++++
+|  .../CMakeFiles/TargetDirectories.txt              |   3 +
+|  cmake-build-debug/CMakeFiles/clion-Debug-log.txt  |  16 +
+|  .../CMakeFiles/clion-environment.txt              |   4 +
+|  cmake-build-debug/CMakeFiles/cmake.check_cache    |   1 +
+|  cmake-build-debug/CMakeFiles/rules.ninja          |  64 ++
+|  cmake-build-debug/Testing/Temporary/LastTest.log  |   3 +
+|  cmake-build-debug/build.ninja                     | 177 ++++
+|  cmake-build-debug/cmake_install.cmake             |  49 ++
+|  37 files changed, 3233 insertions(+), 140 deletions(-)
+| 
+* commit 51e2c8d0fdfe5fed49aa800bdf8c756e5bd9bb3f
+| Author: LiorFrenkel1 <liorfr5002@gmail.com>
+| Date:   Tue Jul 23 22:37:13 2024 +0300
+| 
+|     Implement assignTask
+| 
+|  TaskManager.cpp | 20 ++++++++++++++++----
+|  1 file changed, 16 insertions(+), 4 deletions(-)
+| 
+* commit 09b1c3515f6a6eaf0506af11efb797993519306e
+| Author: roishm <roishmerling@campus.technion.ac.il>
+| Date:   Tue Jul 23 17:06:40 2024 +0300
+| 
+|     fixing minimal bugs
+| 
+|  TaskManager.cpp | 3 ++-
+|  TaskManager.h   | 2 +-
+|  2 files changed, 3 insertions(+), 2 deletions(-)
+| 
+* commit 964e7531f36d113a2306b0ecccecc22cb5f0a27b
+| Author: roishm <roishmerling@campus.technion.ac.il>
+| Date:   Tue Jul 23 17:02:18 2024 +0300
+| 
+|     adding TaskManager
+|     
+|     fields, c'tor, printing by persons, and complete task
+| 
+|  TaskManager.cpp | 30 ++++++++++++++++++++++++++++++
+|  TaskManager.h   |  6 +++---
+|  2 files changed, 33 insertions(+), 3 deletions(-)
+|   
+*   commit 48787997af1df5135cb2216c05aa3732d645dc7f
+|\  Merge: 47046b4 7c9b531
+| | Author: roishm <roishmerling@campus.technion.ac.il>
+| | Date:   Tue Jul 23 17:00:43 2024 +0300
+| | 
+| |     Merge branch 'TaskManager-roi's-part'
+| | 
+| * commit 7c9b531e36f27d17d6f991967c5c70abfd6a49a0
+| | Author: roishm <roishmerling@campus.technion.ac.il>
+| | Date:   Tue Jul 23 16:50:46 2024 +0300
+| | 
+| |     creating the fields + c'tor + completeTask + prinitng by persons
+| | 
+| |  .../cmakeFiles-v1-c88a174e0a2028be29b7.json      | 793 +++++++++++++++++++
+| |  .../reply/codemodel-v2-4dfe946cff7561775dc1.json |  60 ++
+| |  .../v1/reply/index-2024-07-23T13-50-15-0773.json | 108 +++
+| |  .../target-HW3-Debug-b11e634b8b8371a5ca2d.json   | 174 ++++
+| |  4 files changed, 1135 insertions(+)
+| | 
+| * commit b27aa42302e11408d31a6d2629ef263feda6fc77
+| | Author: roishm <roishmerling@campus.technion.ac.il>
+| | Date:   Tue Jul 23 16:46:52 2024 +0300
+| | 
+| |     const adding to Sortedlist
+| | 
+| |  SortedList.h | 262 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+| |  1 file changed, 262 insertions(+)
+| | 
+* | commit 47046b4ca06b20458827fff26c216916e8cf7343
+| | Author: roishm <roishmerling@campus.technion.ac.il>
+| | Date:   Tue Jul 23 16:57:24 2024 +0300
+| | 
+| |     adding const
+| | 
+| |  SortedList.h | 31 +++++++++++++++----------------
+| |  1 file changed, 15 insertions(+), 16 deletions(-)
+| | 
+* | commit f1be4f124e5ecece44273e3b17dc74f6399817ac
+| | Author: roishm <roishmerling@campus.technion.ac.il>
+| | Date:   Tue Jul 23 16:04:17 2024 +0300
+| | 
+| |     updating apply
+| | 
+| |  SortedList.h | 25 +++++++++----------------
+| |  1 file changed, 9 insertions(+), 16 deletions(-)
+| |   
+* |   commit 7c1bb74d3e3f84560ddd01d50c56fe2a1e9a55d6
+|\ \  Merge: a5740ef d8dd18c
+| | | Author: roishm <roishmerling@campus.technion.ac.il>
+| | | Date:   Tue Jul 23 15:57:07 2024 +0300
+| | | 
+| | |     Merge branch 'filter'
+| | | 
+| * | commit d8dd18c86528b9e6a0057d37308bc9bec5e27cd4
+| | | Author: roishm <roishmerling@campus.technion.ac.il>
+| | | Date:   Tue Jul 23 15:37:54 2024 +0300
+| | | 
+| | |     createing filter function
+| | | 
+| | |  SortedList.h | 16 +++++++++++++++-
+| | |  1 file changed, 15 insertions(+), 1 deletion(-)
+| | | 
+* | | commit a5740eff9e0cd38e01ca6636dbd4e7488a24f831
+|/ /  Author: LiorFrenkel1 <liorfr5002@gmail.com>
+| |   Date:   Tue Jul 23 15:32:27 2024 +0300
+| |   
+| |       Create apply
+| |   
+| |    SortedList.h                                    |   19 +
+| |    .../v1/reply/cache-v2-0ca063f7977ecfe131f3.json | 1327 +++++++++++++++++
+| |    .../reply/index-2024-07-23T12-24-27-0090.json   |  108 ++
+| |    3 files changed, 1454 insertions(+)
+| | 
+* | commit 4817625e4ce8338535e6a5f246a3d37508635747
+| | Author: LiorFrenkel1 <liorfr5002@gmail.com>
+| | Date:   Tue Jul 23 15:04:37 2024 +0300
+| | 
+| |     Add template to all functions
+| | 
+| |  SortedList.h | 49 +++++++++++++++++++++++++++++++------------------
+| |  1 file changed, 31 insertions(+), 18 deletions(-)
+| | 
+* | commit fddbce0cd595fff7d0d0e8b64edb05d822f052ac
+| | Author: LiorFrenkel1 <liorfr5002@gmail.com>
+| | Date:   Tue Jul 23 14:06:48 2024 +0300
+| | 
+| |     Fix destructor
+| | 
+| |  SortedList.h | 27 +++------------------------
+| |  1 file changed, 3 insertions(+), 24 deletions(-)
+| | 
+* | commit 6701b334f2dbc3df8bc44f432bacf866da82e212
+| | Author: LiorFrenkel1 <liorfr5002@gmail.com>
+| | Date:   Tue Jul 23 00:43:03 2024 +0300
+| | 
+| |     Add remove and destructor
+| | 
+| |  SortedList.h | 58 +++++++++++++++++++++++++++++++++++---------------------
+| |  1 file changed, 36 insertions(+), 22 deletions(-)
+| | 
+* | commit 2e403520132038e99be2453ed4766b5ddf4ef1d0
+| | Author: roishm <roishmerling@campus.technion.ac.il>
+| | Date:   Mon Jul 22 17:23:39 2024 +0300
+| | 
+| |     minimal bug fixing for iterator
+| | 
+| |  SortedList.h | 9 +++++----
+| |  1 file changed, 5 insertions(+), 4 deletions(-)
+| | 
+* | commit 9ba75421ca9ac85437660ebb5e67a1235b05e2b6
+| | Author: roishm <roishmerling@campus.technion.ac.il>
+| | Date:   Mon Jul 22 17:06:58 2024 +0300
+| | 
+| |     Iterators Added
+| | 
+| |  SortedList.h | 69 +++++++++++++++++++++++++++++++++++++++++++++++++++++---
+| |  1 file changed, 66 insertions(+), 3 deletions(-)
+| | 
+* | commit 520a0c76d311f6fda0f7f374d47ea44a886dd42c
+| | Author: roishm <roishmerling@campus.technion.ac.il>
+| | Date:   Mon Jul 22 12:18:58 2024 +0300
+| | 
+| |     fixed minimal bugs
+| | 
+| |  SortedList.h | 17 ++++++++++-------
+| |  1 file changed, 10 insertions(+), 7 deletions(-)
+| | 
+* | commit 1ff6369d3359a1f44ce67f5ec826b050e50173d1
+| | Author: LiorFrenkel1 <liorfr5002@gmail.com>
+| | Date:   Mon Jul 22 11:53:26 2024 +0300
+| | 
+| |     Update insert
+| | 
+| |  SortedList.h | 9 ++++-----
+| |  1 file changed, 4 insertions(+), 5 deletions(-)
+| | 
+* | commit bdc384ef8db3097a9a30ad942f61a9e4dfb20aaa
+| | Author: roishm <roishmerling@campus.technion.ac.il>
+| | Date:   Mon Jul 22 11:40:55 2024 +0300
+| | 
+| |     transform from length to isEmpty
+| |     
+| |     Missing update for insert
+| | 
+| |  SortedList.h | 48 ++++++++++++++++++++++++++++++++++++++++--------
+| |  1 file changed, 40 insertions(+), 8 deletions(-)
+| | 
+* | commit 0e757588f92cb79d0747b9a71b86074d028edc7d
+| | Author: LiorFrenkel1 <liorfr5002@gmail.com>
+| | Date:   Mon Jul 22 01:30:00 2024 +0300
+| | 
+| |     Add copy constructor
+| | 
+| |  SortedList.h | 10 +++++++++-
+| |  1 file changed, 9 insertions(+), 1 deletion(-)
+| | 
+* | commit deb78de693500ebf1763b5f6aa1e095d452b2e2f
+| | Author: LiorFrenkel1 <liorfr5002@gmail.com>
+| | Date:   Mon Jul 22 01:06:28 2024 +0300
+| | 
+| |     Add length
+| | 
+| |  SortedList.h | 24 ++++++++++++++++--------
+| |  1 file changed, 16 insertions(+), 8 deletions(-)
+| | 
+* | commit 9a8754e6a73d39e0dc84443e57559fb467bbbe07
+| | Author: LiorFrenkel1 <liorfr5002@gmail.com>
+| | Date:   Mon Jul 22 01:00:45 2024 +0300
+| | 
+| |     Add insert
+| | 
+| |  SortedList.h | 70 ++++++++++++++++++++++++++++++++++++++++++++++++++++----
+| |  1 file changed, 65 insertions(+), 5 deletions(-)
+| | 
+* | commit 2914c37374725b98c892524fef97fe00cbdf42e4
+| | Author: LiorFrenkel1 <liorfr5002@gmail.com>
+| | Date:   Fri Jul 19 04:02:41 2024 +0300
+| | 
+| |     Update constructors
+| | 
+| |  SortedList.h | 2 +-
+| |  1 file changed, 1 insertion(+), 1 deletion(-)
+| | 
+* | commit a673bba5f5d29ef13c3b65a0a98b326337c6e740
+| | Author: LiorFrenkel1 <liorfr5002@gmail.com>
+| | Date:   Fri Jul 19 03:58:58 2024 +0300
+| | 
+| |     Constructors fix
+| | 
+| |  SortedList.h | 12 +++++++++---
+| |  1 file changed, 9 insertions(+), 3 deletions(-)
+| | 
+* | commit fc0ed9b6f359c22362e312dddb2805262f777fc1
+| | Author: LiorFrenkel1 <liorfr5002@gmail.com>
+| | Date:   Fri Jul 19 03:53:42 2024 +0300
+| | 
+| |     Fix constructors in .h
+| | 
+| |  SortedList.h | 9 ++++-----
+| |  1 file changed, 4 insertions(+), 5 deletions(-)
+| | 
+* | commit ceeb3c7a0021b60422ce74e8644a2ae9678a0cb5
+|/  Author: LiorFrenkel1 <liorfr5002@gmail.com>
+|   Date:   Fri Jul 19 02:38:54 2024 +0300
+|   
+|       Add constructors to SortedList.h
+|   
+|    SortedList.h | 23 ++++++++++++++++++-----
+|    1 file changed, 18 insertions(+), 5 deletions(-)
+| 
+* commit ebb9fc09ff533a819b528f0a66d73a6fd453475b
+| Author: AdiHarif <adi.harif@campus.technion.ac.il>
+| Date:   Mon Jul 15 20:55:03 2024 +0300
+| 
+|     Adds supplied files
+| 
+|  Person.cpp           |  51 +++++
+|  Person.h             |  79 ++++++++
+|  SortedList.h         |  57 ++++++
+|  Task.cpp             |  83 ++++++++
+|  Task.h               | 115 +++++++++++
+|  TaskManager.h        |  75 +++++++
+|  main.cpp             | 531 +++++++++++++++++++++++++++++++++++++++++++++++++
+|  tests/test1.expected |   3 +
+|  tests/test2.expected |   3 +
+|  tests/test3.expected |  30 +++
+|  tests/test4.expected |   3 +
+|  tests/test5.expected |   3 +
+|  tests/test6.expected |  15 ++
+|  13 files changed, 1048 insertions(+)
+| 
+* commit 1d686955fb829e5ecd8af0a69edce35628cc5d8d
+  Author: AdiHarif <adi.harif@campus.technion.ac.il>
+  Date:   Mon Jul 15 20:53:59 2024 +0300
+  
+      Initial Commit - Adds README file
+  
+   README.md | 7 +++++++
+   1 file changed, 7 insertions(+)
